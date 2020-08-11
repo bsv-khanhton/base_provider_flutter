@@ -1,6 +1,6 @@
 # basecode
 
-Basecode flutter of bsv
+Basecode flutter of BSV
 
 ## Getting Started
 
