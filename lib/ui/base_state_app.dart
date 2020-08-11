@@ -5,6 +5,7 @@ import 'package:basecode/providers/app_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_alert/flutter_alert.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:provider/provider.dart';
 
 abstract class BaseStateApp<T extends StatefulWidget> extends State<T>{
@@ -20,7 +21,11 @@ abstract class BaseStateApp<T extends StatefulWidget> extends State<T>{
   Widget build(BuildContext context) {
     return Consumer<AppProvider>(
         builder: (BuildContext context, AppProvider appProvider, Widget child) {
-          return buildApp(context, appProvider);
+          return ModalProgressHUD(
+              progressIndicator: cupertinoActivityIndicator,
+              inAsyncCall: loading,
+              child: buildApp(context, appProvider)
+          );
         });
   }
 

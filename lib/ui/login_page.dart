@@ -38,61 +38,57 @@ class _LoginPageState extends BaseProviderStateApp<LoginPage, LoginProvider>{
       appBar: AppBar(
         title: Text("Login"),
       ),
-      body: ModalProgressHUD(
-          progressIndicator: cupertinoActivityIndicator,
-          inAsyncCall: loading,
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  TextField(
-                    controller: emailTextEditingController,
-                    decoration: new InputDecoration(
-                        border: new OutlineInputBorder(
-                          borderRadius: const BorderRadius.all(
-                            const Radius.circular(10.0),
-                          ),
-                        ),
-                        filled: true,
-                        hintStyle: new TextStyle(color: Colors.grey[600]),
-                        hintText: "Email",
-                        fillColor: Colors.white70),
-                  ),
-                  SizedBox(height: 10),
-                  TextField(
-                    controller: passwordTextEditingController,
-                    decoration: new InputDecoration(
-                        border: new OutlineInputBorder(
-                          borderRadius: const BorderRadius.all(
-                            const Radius.circular(10.0),
-                          ),
-                        ),
-                        filled: true,
-                        hintStyle: new TextStyle(color: Colors.grey[600]),
-                        hintText: "Password",
-                        fillColor: Colors.white70),
-                  ),
-                  SizedBox(height: 20,),
-                  SizedBox(
-                    width: double.infinity,
-                    // height: double.infinity,
-                    child: RaisedButton(child: Text("Login"),
-                      onPressed: (){
-                        _doLogin(provider);
-                      },
-                      color: Colors.blue,
-                      textColor: Colors.white,
-                      padding: EdgeInsets.all(15.0),
-                      splashColor: Colors.grey,
-                    )
-                  )
-                ],
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextField(
+                controller: emailTextEditingController,
+                decoration: new InputDecoration(
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(10.0),
+                      ),
+                    ),
+                    filled: true,
+                    hintStyle: new TextStyle(color: Colors.grey[600]),
+                    hintText: "Email",
+                    fillColor: Colors.white70),
               ),
-            ),
+              SizedBox(height: 10),
+              TextField(
+                controller: passwordTextEditingController,
+                decoration: new InputDecoration(
+                    border: new OutlineInputBorder(
+                      borderRadius: const BorderRadius.all(
+                        const Radius.circular(10.0),
+                      ),
+                    ),
+                    filled: true,
+                    hintStyle: new TextStyle(color: Colors.grey[600]),
+                    hintText: "Password",
+                    fillColor: Colors.white70),
+              ),
+              SizedBox(height: 20,),
+              SizedBox(
+                width: double.infinity,
+                // height: double.infinity,
+                child: RaisedButton(child: Text("Login"),
+                  onPressed: (){
+                    _doLogin(provider);
+                  },
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  padding: EdgeInsets.all(15.0),
+                  splashColor: Colors.grey,
+                )
+              )
+            ],
           ),
         ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           _switchThemeMode(appProvider);
