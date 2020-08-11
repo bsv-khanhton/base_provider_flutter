@@ -21,7 +21,6 @@ class _LoginPageState extends BaseProviderStateApp<LoginPage, LoginProvider>{
   TextEditingController passwordTextEditingController = TextEditingController();
 
   void _switchThemeMode(AppProvider appProvider) {
-    showLoading();
     if(appProvider.theme ==
         Constants.lightTheme){
       appProvider.setTheme(Constants.darkTheme, "dark");
@@ -29,7 +28,6 @@ class _LoginPageState extends BaseProviderStateApp<LoginPage, LoginProvider>{
       appProvider
           .setTheme(Constants.lightTheme, "light");
     }
-    //hideLoading();
   }
 
   @override
