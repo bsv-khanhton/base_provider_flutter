@@ -5,6 +5,7 @@ import 'package:basecode/ui/base_provider_state_app.dart';
 import 'package:basecode/ui/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:basic_utils/basic_utils.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
@@ -44,6 +45,7 @@ class _LoginPageState extends BaseProviderStateApp<LoginPage, LoginProvider>{
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextField(
+                keyboardType: TextInputType.emailAddress,
                 controller: emailTextEditingController,
                 decoration: new InputDecoration(
                     border: new OutlineInputBorder(
@@ -58,6 +60,7 @@ class _LoginPageState extends BaseProviderStateApp<LoginPage, LoginProvider>{
               ),
               SizedBox(height: 10),
               TextField(
+                obscureText: true,
                 controller: passwordTextEditingController,
                 decoration: new InputDecoration(
                     border: new OutlineInputBorder(
@@ -104,6 +107,10 @@ class _LoginPageState extends BaseProviderStateApp<LoginPage, LoginProvider>{
     String password = passwordTextEditingController.text.toString();
     if(email.isEmpty){
       showMessage("Please enter email");
+      return;
+    }
+    if(!EmailUtils.isEmail(email)){
+      showMessage("Email not correct");
       return;
     }
     if(password.isEmpty){
