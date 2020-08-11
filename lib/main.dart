@@ -9,7 +9,7 @@ void main() async{
   /*------------Setup Env-------------*/
   String dev = "assets/env/.env_dev";
   String prod = "assets/env/.env_prod";
-  await DotEnv().load(prod);
+  await DotEnv().load(dev);
   /*------------End Setup Env-------------*/
 
   runApp(
