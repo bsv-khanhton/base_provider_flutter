@@ -1,4 +1,5 @@
 import 'package:basecode/helper/app_shared_preferences.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class RestData{
@@ -11,15 +12,13 @@ class RestData{
     return _restData;
   }
 
-  static final IS_DEBUG = false;
-
   static Map<String, String> token = Map();
 
   static final LIMIT = 7;
 
   static final KEY_AUTH_HEADER = "Authorization";
 
-  static final BASE_URL ="https://jsonplaceholder.typicode.com";
+  static final BASE_URL = DotEnv().env['API_URL'];
 
   static final LOGIN_URL = BASE_URL+"/posts/1";
 
