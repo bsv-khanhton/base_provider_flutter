@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:basecode/providers/app_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +11,7 @@ abstract class BaseStateApp<T extends StatefulWidget> extends State<T>{
   bool loading = false;
   GlobalKey<ScaffoldState> globalKeyScaffold = GlobalKey<ScaffoldState>();
 
-  Widget cupertinoActivityIndicator = CupertinoActivityIndicator(
+  Widget _cupertinoActivityIndicator = CupertinoActivityIndicator(
     animating: true,
     radius: 12.0,
   );
@@ -22,7 +21,7 @@ abstract class BaseStateApp<T extends StatefulWidget> extends State<T>{
     return Consumer<AppProvider>(
         builder: (BuildContext context, AppProvider appProvider, Widget child) {
           return ModalProgressHUD(
-              progressIndicator: cupertinoActivityIndicator,
+              progressIndicator: _cupertinoActivityIndicator,
               inAsyncCall: loading,
               child: buildApp(context, appProvider)
           );

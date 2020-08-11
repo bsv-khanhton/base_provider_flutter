@@ -91,6 +91,7 @@ class _LoginPageState extends BaseProviderStateApp<LoginPage, LoginProvider>{
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
+          showLoading();
           _switchThemeMode(appProvider);
         },
         tooltip: 'Increment',
