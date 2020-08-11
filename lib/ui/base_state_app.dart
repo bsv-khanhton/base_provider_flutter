@@ -59,6 +59,7 @@ abstract class BaseStateApp<T extends StatefulWidget> extends State<T>{
 
   void showLoading() {
     if(mounted)
+      FocusScope.of(context).unfocus();
       setState(() {
         loading = true;
       });

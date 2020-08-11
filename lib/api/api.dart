@@ -34,6 +34,10 @@ class RestData{
     return await http.post(LOGIN_URL, body: {"email": email, "password": password});
   }
 
+  Future<http.Response> loginMockup(String email, String password) async{
+    return await http.get(LOGIN_URL);
+  }
+
   Future<http.Response> loadDetailFAQ(String idFAQ) async{
     await _getHeaderAuth();
     return await http.get(

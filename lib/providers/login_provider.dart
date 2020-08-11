@@ -1,16 +1,17 @@
+import 'package:basecode/models/login_dto.dart';
 import 'package:basecode/providers/base_provider.dart';
 import 'package:flutter/cupertino.dart';
+import 'dart:convert';
 
 class LoginProvider extends BaseProvider{
   String text = "Hello";
-  ValueNotifier<String> onLoginSuccessed = ValueNotifier("");
+  ValueNotifier<LoginDTO> onLoginSuccessed = ValueNotifier(null);
 
   void doLogin(String email, String password) {
     showLoading();
-    restData.loginEmail(email, password).then((value){
+    restData.loginMockup(email, password).then((value){
       hideLoading();
-      print("Login done");
-      onLoginSuccessed.value = "Login successed!";
+      onLoginSuccessed.value = LoginDTO.fromJson(json.decode(value.body));
       notifyListeners();
 
     }).catchError((onError){

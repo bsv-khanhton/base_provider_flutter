@@ -4,7 +4,6 @@ import 'package:basecode/providers/login_provider.dart';
 import 'package:basecode/ui/base_provider_state_app.dart';
 import 'package:basecode/ui/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:page_transition/page_transition.dart';
 
 class LoginPage extends StatefulWidget {
@@ -122,6 +121,7 @@ class _LoginPageState extends BaseProviderStateApp<LoginPage, LoginProvider>{
   void initProviderListener(LoginProvider provider) {
     if(!provider.onLoginSuccessed.hasListeners){
       provider.onLoginSuccessed.addListener(() {
+        log("Login successed: ${provider.onLoginSuccessed.value?.title}");
         Navigator.pushReplacement(
           context,
           PageTransition(
